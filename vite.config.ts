@@ -28,17 +28,15 @@ export default defineConfig({
       }
     }
   },
-  // ESBuild options - simplified for compatibility with Vercel
-  esbuild: {
-    // Old Options, had a problem with Vercel
-    
-    // drop: ['console', 'debugger'],
-    // legalComments: 'none',
-    // minifyIdentifiers: true,
-    // minifySyntax: true,
-    // minifyWhitespace: true,
-    legalComments: 'none'
-  },
+  // ESBuild options - removed all options for Vercel compatibility
+  // esbuild: {
+  //   // All these options cause TypeScript errors in Vercel:
+  //   // drop: ['console', 'debugger'],
+  //   // legalComments: 'none',
+  //   // minifyIdentifiers: true,
+  //   // minifySyntax: true,
+  //   // minifyWhitespace: true,
+  // },
   server: {
     hmr: {
       overlay: false
