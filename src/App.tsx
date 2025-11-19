@@ -13,9 +13,9 @@ function App() {
     <QueryProvider>
       <MantineProvider>
         <CartProvider>
-          <div className="min-h-screen bg-gray-50">
+          <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
             <Header />
-            <main className="pb-16 md:pb-0">
+            <main style={{ paddingBottom: '64px' }}>
               <Outlet />
             </main>
             <MobileCheckoutButton />

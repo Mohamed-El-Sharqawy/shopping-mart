@@ -91,22 +91,41 @@ export const PWAInstallPrompt: React.FC = () => {
 
   return (
     <>
+      {/* Backdrop Overlay */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 9998,
+          backdropFilter: 'blur(2px)'
+        }}
+        onClick={handleDismiss}
+      />
+      
       {/* Install Prompt */}
       <Card
         shadow="xl"
         padding="lg"
         radius="lg"
         withBorder
-        className="animate-slide-up"
         pos={"fixed"}
-        bottom={16}
-        right={16}
-        w={320}
         style={{
           background: 'linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%)',
           color: 'white',
           zIndex: 9999,
-          border: '1px solid #334155'
+          border: '1px solid #334155',
+          // Center the modal on mobile screens
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '90%',
+          maxWidth: '320px',
+          // Add backdrop blur effect
+          backdropFilter: 'blur(4px)'
         }}
       >
         <Group justify="space-between" align="flex-start" mb="md">
@@ -135,11 +154,11 @@ export const PWAInstallPrompt: React.FC = () => {
             size="md"
             radius="md"
             onClick={handleInstallClick}
-            className="flex-1"
             style={{
               background: '#3b82f6',
               color: 'white',
-              fontWeight: 600
+              fontWeight: 600,
+              flex: 1
             }}
           >
             Install
