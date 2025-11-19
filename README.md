@@ -25,12 +25,12 @@ Build a simple shopping cart application using React JS, focusing on performance
 - **React JS** ✅ (React 19 with TypeScript)
 - **No Redux** ✅ (Context API + useReducer used instead)
 - **Mantine Library** ✅ (UI components and styling)
-- **React Query (TanStack)** ✅ (Data fetching and caching)
+- **React Query (TanStack)** ✅ (Data fetching and simulated caching)
 - **Well-structured, modular code** ✅ (Clean architecture with proper separation)
 - **Clean and readable UI** ✅ (Mobile-first responsive design)
 
 ### Additional Implementations Beyond Requirements
-This implementation goes beyond the basic requirements with advanced features including dual view modes, intelligent caching, mobile-native experience, SEO optimization, PWA capabilities, and comprehensive performance optimizations.
+This implementation goes beyond the basic requirements with advanced features including dual view modes, simulated caching, mobile-native experience, SEO optimization, PWA capabilities, and comprehensive performance optimizations.
 
 ## 🚀 Features
 
@@ -48,7 +48,7 @@ This implementation goes beyond the basic requirements with advanced features in
 ### ⚡ Performance & Caching
 - **Intelligent Product Generation** - 10,000 realistic products created with Faker.js
 - **Persistent Caching** - Products cached in localStorage for 30 minutes to eliminate regeneration delays
-- **React Query Integration** - Advanced caching with 30-minute stale time and 1-hour garbage collection
+- **React Query Integration** - Simulated caching with 30-minute stale time and 1-hour garbage collection
 - **Lazy Loading** - Pages and images load on-demand with blur hash placeholders
 - **Infinite Scrolling** - Smooth loading with performance limits (1,000 products max display)
 - **Optimized Rendering** - Throttled scroll events and efficient re-renders
@@ -80,7 +80,7 @@ This implementation goes beyond the basic requirements with advanced features in
 **State Management:**
 - **React Query (TanStack)** for server state, caching, and data fetching
 - **Context API + useReducer** for cart state management (no Redux needed)
-- **localStorage** for persistent cart and product caching
+- **localStorage** for persistent cart and simulated caching
 
 **Routing & Navigation:**
 - **React Router v6** for client-side routing and navigation
@@ -142,7 +142,7 @@ src/
 ├── contexts/               # React Context providers
 │   └── CartContext.tsx     # Cart state with useReducer + localStorage persistence
 ├── hooks/                  # Custom React hooks
-│   ├── useProducts.ts      # React Query hook with intelligent caching
+│   ├── useProducts.ts      # React Query hook with simulated caching
 │   └── usePageMetadata.ts  # SEO metadata management hook
 ├── pages/                  # Main application screens
 │   ├── ProductListing.tsx  # Dual-mode catalog with infinite scroll & filtering
@@ -178,7 +178,7 @@ src/
 │  • MobileFilters/MobileCheckoutButton (Mobile)   │
 └───────────────────────────────────────────────────┘
 ┌─ Business Logic Layer ───────────────────────────┐
-│  • useProducts (Data Fetching + Caching)         │
+│  • useProducts (Data Fetching + Simulated Caching)│
 │  • usePageMetadata (SEO Management)              │
 │  • CartContext (State Management)                │
 └───────────────────────────────────────────────────┘
@@ -192,7 +192,7 @@ src/
 **2. State Management Strategy:**
 - **Local Component State** - UI state (view modes, filters, loading)
 - **Context API + useReducer** - Cart state with complex actions (add, remove, update quantities)
-- **React Query** - Server state simulation with intelligent caching and background updates
+- **React Query** - Server state simulation with simulated caching and background updates
 - **localStorage** - Persistent storage for cart and generated products (30min expiry)
 
 **3. Performance Architecture:**
@@ -204,14 +204,14 @@ src/
 └───────────────────────────────────────────────────┘
 ┌─ Caching Strategy ───────────────────────────────┐
 │  • React Query: 30min stale time, 1hr cache     │
-│  • localStorage: Product cache with expiry       │
+│  • localStorage: Simulated Product cache with expiry       │
 │  • Service Worker: Static assets + image cache   │
 └───────────────────────────────────────────────────┘
 ┌─ Rendering Optimization ─────────────────────────┐
 │  • React.memo for ProductCard components         │
 │  • Throttled scroll events (100ms)               │
 │  • Intersection Observer for lazy loading        │
-│  • Virtual scrolling limits (1000 products max)  │
+│  • Virtual scrolling limits (1000 products max) - (Removed) │
 └───────────────────────────────────────────────────┘
 ```
 
@@ -234,7 +234,7 @@ src/
 ### 🎯 Key Architecture Decisions
 
 **Performance-First Design:**
-1. **Intelligent Caching** - Multi-layer caching strategy with localStorage and React Query
+1. **Simulated Caching** - Multi-layer caching strategy with localStorage and React Query
 2. **Lazy Loading** - Code splitting for pages and images with proper fallbacks
 3. **Optimized Rendering** - Throttled scroll events, memoized components, and efficient re-renders
 4. **Memory Management** - Automatic cleanup of observers and event listeners
@@ -247,7 +247,7 @@ src/
 
 **State Management Strategy:**
 1. **No Redux** - React Context + useReducer for cart state management
-2. **Server State** - React Query for product data with intelligent caching
+2. **Server State** - React Query for product data with simulated caching
 3. **Persistent Storage** - localStorage for cart and product caching
 4. **Type Safety** - Full TypeScript implementation with strict types
 
@@ -259,7 +259,7 @@ src/
 
 ## 🗄️ Data Generation & Caching System
 
-> **AI-Generated Utilities:** The product generation system, caching utilities, and service worker implementations were created with AI assistance to simulate realistic e-commerce data and implement complex caching strategies without spending time on intricate data generation algorithms.
+> **AI-Generated Utilities:** The product generation system, caching utilities, and service worker implementations were created with AI assistance to simulate realistic e-commerce data and implement complex simulated caching strategies without spending time on intricate data generation algorithms.
 
 ### Intelligent Product Generation
 The application generates 10,000 realistic products using a sophisticated AI-assisted system:
@@ -279,7 +279,7 @@ The application generates 10,000 realistic products using a sophisticated AI-ass
 
 ### Multi-Layer Caching Strategy
 
-**localStorage Caching:**
+**localStorage (Simulated) Caching:**
 - **Product Cache** - Generated products cached for 30 minutes
 - **Cart Persistence** - Shopping cart survives browser refreshes and restarts
 - **Cache Validation** - Automatic expiry and cleanup of stale data
@@ -332,7 +332,7 @@ This project demonstrates a **hybrid development approach** combining human arch
 
 ### AI-Generated Components:
 - **Vite Configuration** - Build optimization, code splitting, and PWA setup
-- **Service Worker** - Caching strategies and offline functionality  
+- **Service Worker** - Simulated Caching strategies and offline functionality  
 - **Product Generator** - Faker.js integration and realistic data simulation
 - **Cache Utilities** - localStorage management with expiry and error handling
 - **Performance Optimizations** - Throttling, lazy loading, and memory management
@@ -344,7 +344,7 @@ This project demonstrates a **hybrid development approach** combining human arch
 - **UX/UI Design** - Mobile-first approach and native app experience
 - **Feature Requirements** - Dual view modes, infinite scroll, and cart persistence
 - **Technology Stack** - React, Mantine, React Query selection
-- **Performance Strategy** - Caching layers and optimization priorities
+- **Performance Strategy** - Simulated Caching layers and optimization priorities
 
 ### Benefits of AI Assistance:
 - **Rapid Prototyping** - Complex utilities implemented without deep research

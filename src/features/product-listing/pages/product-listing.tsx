@@ -111,14 +111,14 @@ export const ProductListing: React.FC = () => {
         </Center>
       )}
 
-      {/* Performance limit reached */}
-      {displayedItems >= 1000 && filteredAndSortedProducts.length > 1000 && (
+      {/* Performance limit reached - disabled for now */}
+      {/* {displayedItems >= 1000 && filteredAndSortedProducts.length > 1000 && (
         <Center mt="xl">
           <Text size="sm" c="orange">
             Showing first 1,000 products for optimal performance. Use filters to narrow your search.
           </Text>
         </Center>
-      )}
+      )} */}
 
       {/* No more products */}
       {displayedItems >= filteredAndSortedProducts.length && filteredAndSortedProducts.length > 0 && (
