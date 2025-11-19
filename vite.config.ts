@@ -10,23 +10,34 @@ export default defineConfig({
     minify: 'esbuild',
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          mantine: ['@mantine/core', '@mantine/hooks'],
-          utils: ['@tanstack/react-query', 'react-router-dom']
+        manualChunks: (id: string) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor';
+            }
+            if (id.includes('@mantine')) {
+              return 'mantine';
+            }
+            if (id.includes('@tanstack/react-query') || id.includes('react-router-dom')) {
+              return 'utils';
+            }
+          }
+          return undefined;
         },
-        format: 'es',
-        compact: true
+        format: 'es' as const
       }
     }
   },
-  // ESBuild options for better minification
+  // ESBuild options - simplified for compatibility with Vercel
   esbuild: {
-    drop: ['console', 'debugger'],
-    legalComments: 'none',
-    minifyIdentifiers: true,
-    minifySyntax: true,
-    minifyWhitespace: true
+    // Old Options, had a problem with Vercel
+    
+    // drop: ['console', 'debugger'],
+    // legalComments: 'none',
+    // minifyIdentifiers: true,
+    // minifySyntax: true,
+    // minifyWhitespace: true,
+    legalComments: 'none'
   },
   server: {
     hmr: {
