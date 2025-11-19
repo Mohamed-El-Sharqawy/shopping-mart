@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3B82F6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="ShopMart" />
+    <meta name="application-name" content="ShopMart" />
+    <meta name="msapplication-TileColor" content="#3B82F6" />
+    <meta name="description" content="ShopMart - Your Ultimate Shopping Destination with 10,000+ products" />
+    <meta name="keywords" content="shopping, e-commerce, products, online store, mobile shopping" />
+    <meta name="author" content="ShopMart" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ShopMart" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:creator" content="@shopmart" />
+    <meta name="twitter:site" content="@shopmart" />
+    
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://picsum.photos" crossorigin />
+    <link rel="dns-prefetch" href="https://picsum.photos" />
+    <link rel="modulepreload" href="/src/main.tsx" />
+    
+    <!-- Critical CSS for faster rendering -->
+    <style>
+      #root { min-height: 100vh; }
+      body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
+      .loading { display: flex; justify-content: center; align-items: center; height: 100vh; color: #3B82F6; }
+      @keyframes slide-up { 
+        from { 
+          transform: translateY(100%); 
+          opacity: 0; 
+        } 
+        to { 
+          transform: translateY(0); 
+          opacity: 1; 
+        } 
+      }
+      .animate-slide-up { 
+        animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+      }
+    </style>
+    
+    <title>ShopMart - Your Ultimate Shopping Destination</title>
+  </head>
+  <body>
+    <div id="root">
+      <div class="loading">Loading ShopMart...</div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', async () => {
+          try {
+            const registration = await navigator.serviceWorker.register('/sw.js', {
+              scope: '/'
+            });
+            
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              if (newWorker) {
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    // New SW version available - could show update notification
+                  }
+                });
+              }
+            });
+            
+          } catch (error) {
+            // SW registration failed silently
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

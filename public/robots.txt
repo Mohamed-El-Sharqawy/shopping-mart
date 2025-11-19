@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (should contain the sitemap.xml file)
+Sitemap: https://our-domain.com/sitemap.xml
+
+# Allow all crawlers to access all content
+# This is appropriate for an e-commerce site that wants to be indexed
+
+# Optional: Crawl delay (uncomment if needed)
+# Crawl-delay: 1
+
+# We should uncomment this if needed but it's not required for this task so i will not do it. 👇
+
+# Block access to admin or sensitive areas (if any)
+# Disallow: /admin/
+# Disallow: /api/

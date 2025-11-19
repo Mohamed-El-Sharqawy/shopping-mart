@@ -1,0 +1,68 @@
+{
+  "name": "ShopMart - Your Ultimate Shopping Destination",
+  "short_name": "ShopMart",
+  "description": "Modern e-commerce PWA with 10,000+ products, fast shopping experience",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "categories": ["shopping", "lifestyle", "business"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/vite.svg", 
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/vite.svg",
+      "sizes": "1280x720",
+      "type": "image/svg+xml",
+      "form_factor": "wide",
+      "label": "ShopMart desktop view"
+    },
+    {
+      "src": "/vite.svg",
+      "sizes": "750x1334",
+      "type": "image/svg+xml", 
+      "form_factor": "narrow",
+      "label": "ShopMart mobile view"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browse Products",
+      "short_name": "Products",
+      "description": "Browse our product catalog",
+      "url": "/",
+      "icons": [{ "src": "/vite.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Shopping Cart",
+      "short_name": "Cart", 
+      "description": "View your shopping cart",
+      "url": "/cart",
+      "icons": [{ "src": "/vite.svg", "sizes": "96x96" }]
+    }
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
